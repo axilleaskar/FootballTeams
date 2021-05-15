@@ -1,0 +1,36 @@
+<div>
+  <form [formGroup]="formGroup">
+  <mat-form-field color="{{ getMode() ? 'accent' : 'primary' }}" style="float: left;margin: 10px;">
+    <input type="text" matInput placeholder="Search" formControlName="input" />
+  </mat-form-field>
+
+  <mat-form-field color="{{ getMode() ? 'accent' : 'primary' }}" style="float: right;margin: 10px;">
+      <mat-label>Stadium Capacity</mat-label>
+      <mat-select formControlName="select"  name="food">
+        <mat-option [value]="0">
+          All
+        </mat-option>
+        <mat-option *ngFor="let cat of capacity" [value]="cat">
+          {{cat}} or more
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  </form>
+</div>
+<div class="card-layout">
+  <mat-card *ngFor="let team of displayedTeams" class="card">
+    <img
+      class="team-logo"
+      mat-card-image
+      [src]="team.strTeamBadge"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p>{{ team.strAlternate }}</p>
+      <p>Stadium: {{ team.strStadium }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="openDialog(team)">DETAILS</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

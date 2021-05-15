@@ -1,27 +1,38 @@
 # FootballTeams
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0.
+This project displays the Premier League football teams and their details
 
-## Development server
+## Components
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Home Component: 
 
-## Code scaffolding
+* Displays each club's Name, logo and stadium name in card.
+* Makes an api request in order to get all Premier League team details. ('/getAllTeams').
+* Filters Clubs by name and stadium capacity using a FormGroup.
+* Cards also have a details action button in order to open the DetailsDialogComponent.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Details Dialog Component: 
 
-## Build
+* This is an angular material Dialog Component.
+* Displays the club's basic info and stadium info.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+App Component: 
 
-## Running unit tests
+* Has an angular material toolbar with the Darkmode/lightmode toggle icon-button and the router-outlet.
+## Services
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Global Service: 
 
-## Running end-to-end tests
+* doAction function can do any possible api request for each Http Method (GET, POST, DELETE, PATCH... etc).
+* Has get/set for localStorage and sessionStorage items.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Serve
 
-## Further help
+1. Run `npm install` to install node_modules
+2. Run `ng serve` to start the project in localhost:4200
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## API
+
+I also created a small api in order to make requests at https://www.thesportsdb.com/api.php. You need to download the FootballTeamsApi and:
+1. Run `npm install` to install node_modules
+2. Run `npm run start` to start the project in localhost:8081
